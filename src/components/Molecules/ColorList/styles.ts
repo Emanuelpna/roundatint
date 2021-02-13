@@ -5,7 +5,24 @@ export const ColorList = styled.div`
     display: flex;
     flex-flow: row wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: ${theme.spacing.xxlarge};
+
+    @media screen and (max-width: 1200px) {
+      gap: ${theme.spacing.xlarge};
+    }
+    
+    @media screen and (max-width: 992px) {
+      gap: ${theme.spacing.large};
+    }
+    
+    @media screen and (max-width: 768px) {
+      gap: ${theme.spacing.xxsmall};
+    }
+    
+    @media screen and (max-width: 500px) {
+      gap: 0;
+    }
   `}
 `;
 
