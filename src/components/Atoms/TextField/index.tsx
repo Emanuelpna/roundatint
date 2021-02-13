@@ -32,7 +32,7 @@ export default function TextField({
   }
 
   return (
-    <>
+    <div>
       {label && <S.Label htmlFor={name}>{label}</S.Label>}
 
       <Spacer size={8} />
@@ -46,6 +46,6 @@ export default function TextField({
         onChange={changeInputValue}
         {...props}
       />
-    </>
+    </div>
   );
 }
