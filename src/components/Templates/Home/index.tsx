@@ -7,10 +7,13 @@ import { ColorPalleteCreator } from "/@/data/useCases/colorPallete/ColorPalleteC
 
 import Button from "/@/components/Atoms/Button";
 import { Grid } from "/@/components/Atoms/Grid";
+import Header from "/@/components/Atoms/Header";
 import { Spacer } from "/@/components/Atoms/Spacer";
 import TextField from "/@/components/Atoms/TextField";
 
 import ColorList from "/@/components/Molecules/ColorList";
+
+import * as S from "./styles";
 
 export default function Home() {
   const [showPallete, setShowPallete] = useState(false);
@@ -49,7 +52,9 @@ export default function Home() {
 
   return (
     <main>
-      <Spacer size={24} />
+      <Header />
+
+      <Spacer size={32} />
 
       <Grid.Container>
         <Grid.Column
@@ -57,31 +62,24 @@ export default function Home() {
             xs: 12,
           }}
         >
-          <h1>RoundATint</h1>
-          <h3>Um gerador de paleta de cores para o seu novo projeto</h3>
-        </Grid.Column>
-      </Grid.Container>
+          <S.ColorForm onSubmit={generateColorPallete}>
+            {colorHex && (
+              <S.ColorPreview
+                colorHex={colorHex.includes("#") ? colorHex : `#${colorHex}`}
+              />
+            )}
 
-      <Spacer size={24} />
-
-      <Grid.Container>
-        <Grid.Column
-          spanRows={{
-            xs: 12,
-          }}
-        >
-          <form onSubmit={generateColorPallete}>
             <TextField
               id="colorChooser"
               name="colorChooser"
               initialValue={colorHex}
-              placeholder="Exemplo: #D33F49"
-              label="Digite o código HEX da cor"
+              placeholder="Exemplo: #D33F49 (# é opcional)"
+              label="Digite o código HEX da cor escolhida"
               onInputChange={(value: string) => setColorHex(value)}
             />
 
             <Button type="submit">Gerar Paleta de Cores</Button>
-          </form>
+          </S.ColorForm>
         </Grid.Column>
 
         <Grid.Column
