@@ -1,11 +1,16 @@
 import { ColorType } from "/@/data/model/ColorType";
 
+import { ColorHSL } from "/@/domain/model/color/ColorHSL";
+
 import { ColorPallete } from "/@/data/protocols/colorPallete/ColorPallete";
 
 export class ColorPalleteCreator implements ColorPallete {
   public totalSteps = 5;
   public stepTintVariation = 0;
   public higherContrast = true;
+
+  private _lightestTint: ColorHSL | undefined;
+  private _darkestShade: ColorHSL | undefined;
 
   constructor(
     public hue: number,
@@ -14,14 +19,82 @@ export class ColorPalleteCreator implements ColorPallete {
   ) {}
 
   public getTints() {
-    return this._getColorVariation("tint");
+    const tints = this._getColorVariation("tint");
+
+    this._lightestTint = tints.pop();
+
+    return tints;
   }
 
   public getShades() {
-    return this._getColorVariation("shade");
+    const shades = this._getColorVariation("shade");
+
+    this._darkestShade = shades.pop();
+
+    return shades;
   }
 
-  private _getColorVariation(type: ColorType) {
+  public getTextVariations() {
+    if (!this._darkestShade || !this._lightestTint) return [];
+
+    if (!this._darkestShade?.saturation || !this._lightestTint?.saturation)
+      return [];
+
+    const lightnessInterval =
+      this._lightestTint.lightness - this._darkestShade.lightness;
+
+    const stepVariation = lightnessInterval / this.totalSteps;
+
+    const textVariationsMiddleColors: ColorHSL[] = [];
+
+    // Define as cores intermediárias
+    for (let index = 1; index <= this.totalSteps; index++) {
+      const newColorVariation = stepVariation * index;
+
+      const newLightness = this._offsetOutOfBoundaryValue(
+        this._lightestTint.lightness - newColorVariation
+      );
+
+      textVariationsMiddleColors.push({
+        ...this._lightestTint,
+        // Fixa saturação em 12
+        saturation: 12,
+        lightness: newLightness,
+      });
+    }
+
+    const textVariationsMiddleColorsFiltered = textVariationsMiddleColors
+      .filter((textColor) => {
+        const darkestLightness = (this._darkestShade?.lightness ?? 0) + 3;
+
+        return textColor.lightness > darkestLightness;
+      })
+      .filter((textColor) => {
+        const lightestLightness = (this._lightestTint?.lightness ?? 0) - 3;
+
+        return textColor.lightness < lightestLightness;
+      });
+
+    const textVariations: ColorHSL[] = [];
+
+    textVariations.push({
+      ...this._lightestTint,
+      saturation: 12,
+    });
+
+    for (const iterator of textVariationsMiddleColorsFiltered) {
+      textVariations.push(iterator);
+    }
+
+    textVariations.push({
+      ...this._darkestShade,
+      saturation: 12,
+    });
+
+    return textVariations;
+  }
+
+  private _getColorVariation(type: ColorType): ColorHSL[] {
     const newLightnessValues = [];
     const newSaturationValues = [];
 
