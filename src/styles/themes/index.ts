@@ -1,13 +1,9 @@
+import { breakpoints } from "./breakpoints/base";
+
 export const theme = {
   grid: {
     columns: 12,
-    container: {
-      xs: 0,
-      sm: 480,
-      md: 768,
-      lg: 992,
-      xl: 1200,
-    },
+    containers: breakpoints,
     gutter: "3.2rem",
   },
   colors: {
