@@ -19,9 +19,9 @@ export default function ColorBlock({ colorCode }: ColorBlockProps) {
   }
 
   return (
-    <div onClick={copyColorOnClick}>
+    <S.Wrapper title="Clique para copiar Cor para área de tranferência" onClick={copyColorOnClick}>
       <S.Block colorCode={colorCode} />
       <S.ColorName>{colorConvertor.hslToString(colorCode)}</S.ColorName>
-    </div>
+    </S.Wrapper>
   );
 }
