@@ -58,14 +58,5 @@ export const GlobalStyles = createGlobalStyle`
       font-size: ${theme.font.sizes.regular};
       background: ${theme.colors.background.main};
     }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      font-family: ${theme.font.family.display};
-    }
   `}
 `;
