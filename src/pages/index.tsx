@@ -2,8 +2,6 @@ import React from "react";
 
 import Home from "/@/components/Templates/Home";
 
-function App() {
+export default function IndexPage() {
   return <Home />;
 }
-
-export default App;
