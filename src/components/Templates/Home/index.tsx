@@ -6,8 +6,10 @@ import { HexConvertor } from "/@/data/useCases/colorPallete/HexConvertor";
 import { ColorPalleteCreator } from "/@/data/useCases/colorPallete/ColorPalleteCreator";
 
 import Button from "/@/components/Atoms/Button";
+import { Grid } from "/@/components/Atoms/Grid";
 import { Spacer } from "/@/components/Atoms/Spacer";
 import TextField from "/@/components/Atoms/TextField";
+
 import ColorList from "/@/components/Molecules/ColorList";
 
 export default function Home() {
@@ -21,6 +23,7 @@ export default function Home() {
   });
 
   const [newTintColors, setNewTintColors] = useState<ColorHSL[]>([]);
+  const [newTextColors, setNewTextColors] = useState<ColorHSL[]>([]);
   const [newShadeColors, setNewShadeColors] = useState<ColorHSL[]>([]);
 
   useLayoutEffect(() => {
@@ -30,6 +33,7 @@ export default function Home() {
 
     setNewTintColors(palleteDefiner.getTints());
     setNewShadeColors(palleteDefiner.getShades());
+    setNewTextColors(palleteDefiner.getTextVariations());
   }, [color]);
 
   const generateColorPallete = (event: React.FormEvent<HTMLFormElement>) => {
@@ -44,31 +48,47 @@ export default function Home() {
   };
 
   return (
-    <div>
-      <header>
-        <h1>RoundATint</h1>
-        <h3>Um gerador de paleta de cores para o seu novo projeto</h3>
-      </header>
+    <main>
+      <Spacer size={24} />
+
+      <Grid.Container>
+        <Grid.Column
+          spanRows={{
+            xs: 12,
+          }}
+        >
+          <h1>RoundATint</h1>
+          <h3>Um gerador de paleta de cores para o seu novo projeto</h3>
+        </Grid.Column>
+      </Grid.Container>
 
       <Spacer size={24} />
 
-      <section>
-        <form onSubmit={generateColorPallete}>
-          <TextField
-            id="colorChooser"
-            name="colorChooser"
-            initialValue={colorHex}
-            placeholder="Exemplo: #D33F49"
-            label="Digite o código HEX da cor"
-            onInputChange={(value: string) => setColorHex(value)}
-          />
+      <Grid.Container>
+        <Grid.Column
+          spanRows={{
+            xs: 12,
+          }}
+        >
+          <form onSubmit={generateColorPallete}>
+            <TextField
+              id="colorChooser"
+              name="colorChooser"
+              initialValue={colorHex}
+              placeholder="Exemplo: #D33F49"
+              label="Digite o código HEX da cor"
+              onInputChange={(value: string) => setColorHex(value)}
+            />
 
-          <Button type="submit">Gerar Paleta de Cores</Button>
-        </form>
+            <Button type="submit">Gerar Paleta de Cores</Button>
+          </form>
+        </Grid.Column>
 
-        <Spacer size={24} />
-
-        <div>
+        <Grid.Column
+          spanRows={{
+            xs: 12,
+          }}
+        >
           {showPallete && (
             <>
               <Spacer size={24} />
@@ -78,10 +98,14 @@ export default function Home() {
               <Spacer size={24} />
 
               <ColorList title="Luzes" colorList={newTintColors} />
+
+              <Spacer size={24} />
+
+              <ColorList title="Texto" colorList={newTextColors} />
             </>
           )}
-        </div>
-      </section>
-    </div>
+        </Grid.Column>
+      </Grid.Container>
+    </main>
   );
 }
