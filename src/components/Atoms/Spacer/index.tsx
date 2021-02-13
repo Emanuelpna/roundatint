@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 export type SpacerProps = {
   axis?: 'horizontal' | 'vertical'
-  size: 2 | 4 | 8 | 12 | 16 | 24 | 32
+  size: 2 | 4 | 8 | 12 | 16 | 24 | 32 | 48 | 96
 }
 
 function getHeight({ axis, size }: SpacerProps) {
