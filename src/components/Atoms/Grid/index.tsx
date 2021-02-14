@@ -4,7 +4,6 @@ import { BreakpointsKeys } from "/@/styles/themes/breakpoints/base";
 
 import { mediaBreakpoints } from "/@/styles/services/mediaBreakpoints";
 
-
 const Container = styled.section`
   ${({ theme }) => css`
     display: grid;
@@ -85,7 +84,7 @@ const Column = styled.div<ColumnProps>`
         `,
       }),
     });
-  }}
+  }};
 `;
 
 export const Grid = {
