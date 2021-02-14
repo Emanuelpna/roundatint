@@ -1,10 +1,16 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
 import { Grid } from "/@/components/Atoms/Grid";
 import Header from "/@/components/Atoms/Header";
 import { Spacer } from "/@/components/Atoms/Spacer";
 
-export default function Projeto() {
+import * as S from "./styles";
+
+type ProjetoProps = {
+  children: ReactNode;
+};
+
+export default function Projeto({ children }: ProjetoProps) {
   return (
     <main>
       <Header />
@@ -17,7 +23,7 @@ export default function Projeto() {
             xs: 12,
           }}
         >
-          <h3>A ideia desse projeto é</h3>
+          <S.Content>{children}</S.Content>
         </Grid.Column>
       </Grid.Container>
     </main>
