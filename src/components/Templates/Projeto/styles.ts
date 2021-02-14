@@ -6,6 +6,7 @@ export const Content = styled.article`
     max-width: 65ch;
     margin-top: 6rem;
     margin-bottom: 12rem;
+    padding-right: ${theme.spacing.large};
 
     & h2 {
       line-height: 1.2;
