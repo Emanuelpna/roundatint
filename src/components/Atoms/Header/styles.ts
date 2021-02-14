@@ -36,6 +36,7 @@ export const Header = styled.header`
 
     & nav a {
       font-weight: ${theme.font.bold};
+      padding: 0 ${theme.spacing.xxsmall};
       color: ${theme.colors.primary.main};
       font-size: ${theme.font.sizes.regular};
       font-family: ${theme.font.family.text};
@@ -47,6 +48,20 @@ export const Header = styled.header`
     }
 
     & nav a:hover {
+      color: ${theme.colors.primary.dark};
+    }
+
+    & nav a.currentPage:hover {
+      color: ${theme.colors.background.light};
+      background: ${theme.colors.primary.dark};
+    }
+
+    & .currentPage:hover h1 {
+      color: ${theme.colors.background.light};
+      background: ${theme.colors.primary.dark};
+    }
+
+    & a:hover h1 {
       color: ${theme.colors.primary.dark};
     }
 
