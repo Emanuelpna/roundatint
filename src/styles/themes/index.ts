@@ -60,6 +60,7 @@ export const theme = {
   shadows: {
     elevation1: "0 4px 12px rgba(52, 45, 48, .20)",
     elevation2: "0 6px 16px rgba(52, 45, 48, .28)",
+    outlinePrimary: "0 0 0 4px rgb(211, 63, 73, 0.41)",
     elevationContrast1: "0 4px 12px rgba(52, 45, 48, .16)",
     elevationContrast2: "0 6px 16px rgba(52, 45, 48, .16)",
   },

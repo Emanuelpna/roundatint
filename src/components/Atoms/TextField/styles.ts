@@ -3,13 +3,18 @@ import styled, { css } from "styled-components";
 export const Input = styled.input`
   ${({ theme }) => css`
     border: none;
-    color: ${theme.colors.gray.lightest};
+    color: ${theme.colors.gray.medium};
     border-radius: ${theme.border.radius};
     margin-right: ${theme.spacing.xsmall};
     box-shadow: ${theme.shadows.elevation1};
-    color: ${theme.colors.gray.medium};
     background: ${theme.colors.background.light};
     padding: ${theme.spacing.xsmall} ${theme.spacing.small};
+
+    &:focus,
+    &:hover {
+      outline: none;
+      box-shadow: ${theme.shadows.outlinePrimary};
+    }
   `}
 `;
 

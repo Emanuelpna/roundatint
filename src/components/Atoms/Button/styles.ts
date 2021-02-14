@@ -15,5 +15,10 @@ export const Button = styled.button`
       box-shadow: ${theme.shadows.elevation2};
       background: ${theme.colors.primary.dark};
     }
+
+    &:focus {
+      outline: none;
+      box-shadow: ${theme.shadows.outlinePrimary};
+    }
   `}
 `;
