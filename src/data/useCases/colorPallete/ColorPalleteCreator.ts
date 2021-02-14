@@ -5,7 +5,7 @@ import { ColorHSL } from "/@/domain/model/color/ColorHSL";
 import { ColorPallete } from "/@/data/protocols/colorPallete/ColorPallete";
 
 export class ColorPalleteCreator implements ColorPallete {
-  public totalSteps = 5;
+  public totalSteps = 6;
   public stepTintVariation = 0;
   public higherContrast = true;
 
@@ -48,7 +48,7 @@ export class ColorPalleteCreator implements ColorPallete {
     const textVariationsMiddleColors: ColorHSL[] = [];
 
     // Define as cores intermediárias
-    for (let index = 1; index <= this.totalSteps; index++) {
+    for (let index = 2; index <= this.totalSteps + 1; index++) {
       const newColorVariation = stepVariation * index;
 
       const newLightness = this._offsetOutOfBoundaryValue(
@@ -57,8 +57,8 @@ export class ColorPalleteCreator implements ColorPallete {
 
       textVariationsMiddleColors.push({
         ...this._lightestTint,
-        // Fixa saturação em 12
-        saturation: 12,
+        // Fixa saturação em 8
+        saturation: 8,
         lightness: newLightness,
       });
     }
@@ -79,7 +79,7 @@ export class ColorPalleteCreator implements ColorPallete {
 
     textVariations.push({
       ...this._lightestTint,
-      saturation: 12,
+      saturation: 8,
     });
 
     for (const iterator of textVariationsMiddleColorsFiltered) {
@@ -88,7 +88,7 @@ export class ColorPalleteCreator implements ColorPallete {
 
     textVariations.push({
       ...this._darkestShade,
-      saturation: 12,
+      saturation: 8,
     });
 
     return textVariations;
@@ -135,7 +135,7 @@ export class ColorPalleteCreator implements ColorPallete {
     if (this.higherContrast) {
       const maxBoundaryOffset = this.saturation;
 
-      return maxBoundaryOffset - saturationVariation;
+      return maxBoundaryOffset + saturationVariation;
     } else {
       const maxBoundaryOffset =
         this.saturation - Math.abs(this._getVariationStep(type));
@@ -170,7 +170,21 @@ export class ColorPalleteCreator implements ColorPallete {
     }
   }
 
-  private _getYVariation(x: number) {
-    return Math.ceil(x / 2 / (this.saturation * 1.8));
+  private _getYVariation(currentLightness: number) {
+    const variationByCurrentLightness = this.saturation / currentLightness;
+
+    // Para que a variação comece baixa e vá aumentando
+    const variationByTheInverseOfCurrentLightness = 100 - currentLightness;
+
+    // Transforma uma variação linear em uma não-lienar
+    const exponencialVariation = Math.exp(
+      variationByTheInverseOfCurrentLightness / 16
+    );
+
+    const newValue = Math.sqrt(
+      variationByCurrentLightness * exponencialVariation
+    );
+
+    return newValue;
   }
 }
