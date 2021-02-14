@@ -7,5 +7,5 @@ type ColorPreviewProps = {
 };
 
 export default function ColorPreview({ colorHex }: ColorPreviewProps) {
-  return <S.ColorPreview colorHex={colorHex} />;
+  return <S.ColorPreview title={colorHex} colorHex={colorHex} />;
 }
