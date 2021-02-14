@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 export const Header = styled.header`
   ${({ theme }) => css`
     display: flex;
+    flex-flow: row wrap;
     align-items: center;
     justify-content: space-between;
     padding: ${theme.spacing.medium} 6%;
@@ -24,7 +25,7 @@ export const Header = styled.header`
     & nav {
       display: flex;
       align-items: center;
-      gap: ${theme.spacing.regular};
+      gap: ${theme.spacing.medium};
       justify-content: space-between;
       padding: 0 ${theme.spacing.medium};
     }
@@ -40,8 +41,25 @@ export const Header = styled.header`
       font-family: ${theme.font.family.text};
     }
 
+    & nav a.currentPage {
+      color: ${theme.colors.background.light};
+      background: ${theme.colors.primary.main};
+    }
+
     & nav a:hover {
       color: ${theme.colors.primary.dark};
+    }
+
+    @media screen and (max-width: 600px) {
+      & h1 {
+        padding: 0 ${theme.spacing.small};
+      }
+
+      & nav {
+        width: 100%;
+        margin-top: ${theme.spacing.small};
+        padding: 0 ${theme.spacing.small};
+      }
     }
   `}
 `;

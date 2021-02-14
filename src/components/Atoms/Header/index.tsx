@@ -11,21 +11,11 @@ export default function Header() {
       </NavLink>
 
       <nav>
-        <NavLink
-          to="/projeto"
-          activeStyle={{
-            textDecoration: "underline",
-          }}
-        >
+        <NavLink to="/projeto" activeClassName="currentPage">
           Sobre o Projeto
         </NavLink>
 
-        <NavLink
-          activeStyle={{
-            textDecoration: "underline",
-          }}
-          to="/contato"
-        >
+        <NavLink to="/contato" activeClassName="currentPage">
           Contato
         </NavLink>
       </nav>
