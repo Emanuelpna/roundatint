@@ -61,5 +61,6 @@ export const ColorName = styled.span`
     width: 100%;
     display: block;
     text-align: center;
+    font-size: ${theme.font.sizes.small};
   `}
 `;
