@@ -98,9 +98,17 @@ export class ColorPalleteCreator implements ColorPallete {
     const newLightnessValues = [];
     const newSaturationValues = [];
 
+    let offsetSaturation = 0;
     let value = this.lightness;
     for (let index = 0; index < this.totalSteps; index++) {
-      newSaturationValues.push(this._offsetSaturation(value, type));
+      const newSaturation = this._offsetSaturation(value, type);
+      if (index === 0) {
+        offsetSaturation = newSaturation - this.saturation;
+      }
+
+      newSaturationValues.push(
+        this._offsetSaturation(value, type) - offsetSaturation
+      );
 
       value = Math.ceil(value - this._getVariationStep(type));
 
@@ -145,10 +153,31 @@ export class ColorPalleteCreator implements ColorPallete {
   }
 
   private _getHueVariation(hue: number, variation: number, type: ColorType) {
-    if (type === "tint") {
-      return hue - variation / 2;
+    const isYellow = this._isNumberInRange(20, 64);
+    const isPurple = this._isNumberInRange(263, 327);
+
+    if (type === "tint" || isYellow(hue) || isPurple(hue)) {
+      return this._correctHueValue(Math.ceil(hue - variation / 0.22));
     } else {
-      return hue + variation / 2;
+      return this._correctHueValue(Math.ceil(hue + variation / 0.22));
+    }
+  }
+
+  private _isNumberInRange(min: number, max: number) {
+    return (value: number) => (value - min) * (value - max) <= 0;
+  }
+
+  private _correctHueValue(hue: number) {
+    if (hue > 360) {
+      const excedent = hue - 360;
+
+      return excedent;
+    } else if (hue < 0) {
+      const excedent = 360 - hue;
+
+      return excedent;
+    } else {
+      return hue;
     }
   }
 
