@@ -43,7 +43,7 @@ export const theme = {
     bold: 700,
     sizes: {
       small: "1.4rem",
-      regular: "1.6rem",
+      regular: "1.8rem",
       medium: "2.0rem",
       xmedium: "2.4rem",
       large: "3.0rem",
