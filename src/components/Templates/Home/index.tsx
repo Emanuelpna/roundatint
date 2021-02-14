@@ -10,6 +10,7 @@ import { Grid } from "/@/components/Atoms/Grid";
 import Header from "/@/components/Atoms/Header";
 import { Spacer } from "/@/components/Atoms/Spacer";
 import TextField from "/@/components/Atoms/TextField";
+import ColorPreview from "/@/components/Atoms/ColorPreview";
 
 import ColorList from "/@/components/Molecules/ColorList";
 
@@ -64,7 +65,7 @@ export default function Home() {
         >
           <S.ColorForm onSubmit={generateColorPallete}>
             {colorHex && (
-              <S.ColorPreview
+              <ColorPreview
                 colorHex={colorHex.includes("#") ? colorHex : `#${colorHex}`}
               />
             )}

@@ -23,13 +23,3 @@ export const ColorForm = styled.form`
     }
   `}
 `;
-
-export const ColorPreview = styled.span<{ colorHex: string }>`
-  ${({ theme, colorHex }) => css`
-    width: 36px;
-    height: 36px;
-    background: ${colorHex};
-    border-radius: ${theme.border.radius};
-    box-shadow: ${theme.shadows.elevation1};
-  `}
-`;
