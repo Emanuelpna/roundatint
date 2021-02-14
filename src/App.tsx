@@ -9,6 +9,10 @@ const Projeto = loadable(() => import("/@/pages/projeto"), {
   fallback: <div>Carregando...</div>,
 });
 
+const ContactPage = loadable(() => import("/@/pages/contato"), {
+  fallback: <div>Carregando...</div>,
+});
+
 import { theme } from "/@/styles/themes";
 import { GlobalStyles } from "/@/styles/global";
 
@@ -23,6 +27,9 @@ function App() {
           </Route>
           <Route path="/projeto">
             <Projeto />
+          </Route>
+          <Route path="/contato">
+            <ContactPage />
           </Route>
         </Switch>
       </ThemeProvider>
