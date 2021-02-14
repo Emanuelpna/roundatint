@@ -58,10 +58,10 @@ export const theme = {
     },
   },
   shadows: {
-    elevation1: "0 2px 10px rgba(18, 19, 23, .28)",
-    elevation2: "0 4px 12px rgba(18, 19, 23, .28)",
-    elevationContrast1: "0 2px 10px rgba(18, 19, 23, .16)",
-    elevationContrast2: "0 4px 12px rgba(18, 19, 23, .16)",
+    elevation1: "0 4px 12px rgba(52, 45, 48, .20)",
+    elevation2: "0 6px 16px rgba(52, 45, 48, .28)",
+    elevationContrast1: "0 4px 12px rgba(52, 45, 48, .16)",
+    elevationContrast2: "0 6px 16px rgba(52, 45, 48, .16)",
   },
   spacing: {
     xxsmall: "0.8rem",
