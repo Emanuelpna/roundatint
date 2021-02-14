@@ -4,12 +4,12 @@ import * as S from "./styles";
 
 type ColorPreviewProps = {
   colorHex: string;
-  className: string;
+  className?: string;
 };
 
 export default function ColorPreview({
   colorHex,
-  className,
+  className = "",
 }: ColorPreviewProps) {
   return (
     <S.ColorPreview
