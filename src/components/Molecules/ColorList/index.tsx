@@ -4,6 +4,7 @@ import { ColorHSL } from "/@/domain/model/color/ColorHSL";
 
 import { ColorConvertor } from "/@/data/useCases/colorPallete/ColorConvertor";
 
+import { Spacer } from "/@/components/Atoms/Spacer";
 import ColorBlock from "/@/components/Atoms/ColorBlock";
 
 import * as S from "./styles";
@@ -18,7 +19,11 @@ export default function ColorList({ title, colorList }: ColorListProps) {
 
   return (
     <div>
+      <Spacer size={48} />
+
       <S.Title>{title}</S.Title>
+
+      <Spacer size={8} />
 
       <S.ColorList>
         {colorList.map((color) => (
