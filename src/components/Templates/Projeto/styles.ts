@@ -8,6 +8,10 @@ export const Content = styled.article`
     margin-bottom: 12rem;
     padding-right: ${theme.spacing.large};
 
+    @media screen and (max-width: 768px) {
+      padding: 0 ${theme.spacing.large};
+    }
+
     & h2 {
       line-height: 1.2;
       margin: ${theme.spacing.medium} 0;
@@ -17,9 +21,15 @@ export const Content = styled.article`
       font-family: ${theme.font.family.display};
     }
 
+    @media screen and (max-width: 768px) {
+      & h2 {
+        padding-right: ${theme.spacing.small};
+      }
+    }
+
     & h3 {
       line-height: 1.2;
-      margin: ${theme.spacing.small} 0;
+      margin: ${theme.spacing.regular} 0;
       font-size: ${theme.font.sizes.xmedium};
       font-family: ${theme.font.family.text};
       padding-right: ${theme.spacing.xxlarge};
