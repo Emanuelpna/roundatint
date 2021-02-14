@@ -5,23 +5,7 @@ export const ColorList = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, min-content));
     align-items: center;
-    justify-content: space-between;
-
-    @media screen and (max-width: 1200px) {
-      gap: ${theme.spacing.xlarge};
-    }
-
-    @media screen and (max-width: 992px) {
-      gap: ${theme.spacing.large};
-    }
-
-    @media screen and (max-width: 768px) {
-      gap: ${theme.spacing.xxsmall};
-    }
-
-    @media screen and (max-width: 500px) {
-      gap: 0;
-    }
+    justify-content: space-evenly;
   `}
 `;
 
