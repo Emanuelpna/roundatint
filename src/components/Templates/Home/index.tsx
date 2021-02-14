@@ -76,7 +76,7 @@ export default function Home() {
               initialValue={colorHex}
               placeholder="Exemplo: #D33F49 (# é opcional)"
               label="Digite o código HEX da cor escolhida"
-              onInputChange={(value: string) => setColorHex(value)}
+              onInputChange={(value: string) => setColorHex(value.trim())}
             />
 
             <Button type="submit">Gerar Paleta de Cores</Button>
