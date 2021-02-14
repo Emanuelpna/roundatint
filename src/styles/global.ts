@@ -53,7 +53,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     body {
-      color: ${theme.colors.gray.main};
+      color: ${theme.colors.gray.medium};
       font-family: ${theme.font.family.text};
       font-size: ${theme.font.sizes.regular};
       background: ${theme.colors.background.main};

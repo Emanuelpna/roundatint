@@ -18,7 +18,7 @@ export const ColorForm = styled.form`
     }
 
     & label {
-      color: ${theme.colors.gray.main};
+      color: ${theme.colors.gray.medium};
       font-size: ${theme.font.sizes.xmedium};
     }
 
