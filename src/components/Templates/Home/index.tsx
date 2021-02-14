@@ -55,7 +55,7 @@ export default function Home() {
     <main>
       <Header />
 
-      <Spacer size={32} />
+      <Spacer size={96} />
 
       <Grid.Container>
         <Grid.Column
@@ -105,6 +105,8 @@ export default function Home() {
           )}
         </Grid.Column>
       </Grid.Container>
+
+      <Spacer size={96} />
     </main>
   );
 }
