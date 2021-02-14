@@ -7,9 +7,7 @@ import ColorPreview from "/@/components/Atoms/ColorPreview/index.tsx";
 A ideia desse projeto é ser uma nova possibilidade para você ao escolher as cores do seu projeto.
 As cores são definidas de maneira não-linear.
 
-Veja por exemplo a cor `#5E4AE3` abaixo:
-
-<ColorPreview colorHex="#5E4AE3" />
+Veja por exemplo a cor `#5E4AE3` <ColorPreview colorHex="#5E4AE3" className="insideText" /> abaixo:
 
 ![Exemplo de uma cor azul](/images/cor_original.jpg)
 
@@ -19,13 +17,28 @@ Para definirmos as suas variações mais escuras poderiamos seguir com o padrão
 
 A nova cor está com a luminosidade baixa, como esperado. Mas também perdeu um pouco da saturação.
 
-Utilizando o método desse site poderíamos definir a cor mantendo melhor seus valores de saturação. Ela ainda precisa ser diminuida para um resultado melhor.
+Utilizando o método desse site poderíamos definir a cor mantendo melhor seus valores de saturação. Ela ainda precisa ser diminuida para um resultado mais natural.
 
 ![Tom mais escuro do azul escolhido a cima preservando a saturação](/images/cor_escura_roundatint.jpg)
 
 O método usado consiste em nada mais nada menos do que definir as novas cores (tanto mais escuras quanto mais claras) fazendo um arco na caixa de seleção de cores, como na imagem abaixo:
 
 ![Representação visual do arco de novas cores a serem escolhidas](/images/esquema_visual_roundatint.jpg)
+
+Além disso as cores novas devem sofrer leves alterações na sua Matiz. Um azul mais escuro terá pitadas de roxo, enquanto um azul mais claro terá pitadas de ciano.
+
+O padrão é cores mais escuras terão tons mais a direita no degradê de Matiz e cores mais claras terão tons mais a esquerda no degradê de Matiz.
+
+![Representação visual da variação de Matiz](/images/esquema_visual_variacao_matiz.jpg)
+
+A exceção aqui é o Amarelo e o Roxo. Ambas as cores não funcionam nesse esquema e para elas a ordem é invertida. As cores mais escuras estarão a esquerda e vice versa.
+Isso faz com que o roxo escuro tenha tons azulados em vez de avermelhadas e que os tons mais escuros de amarelo sejam alaranjados e não esverdeados.
+
+### O que é RoundATint?
+
+O nome é um trocadilho com Roundabout, ou Rotatória em bom português (sim aquelas que você vê pelas estradas). Como a ideia aqui é escolher as cores em círculo, o nome daria a entender que estaremos circundando uma cor.
+
+Estaremos _round a tint_ no caso das luzes. Ou _round a shade_ para as sombras.
 
 ### Quando devo usar esse método?
 
@@ -35,3 +48,11 @@ Sempre e nunca. Quero dizer: É mais um possível método a se usar em seus proj
 A ideia aqui é manter a característica da cor escolhida tanto em seus tons mais escuros ou mais claros quanto também nas cores a serem usadas para os textos.
 
 Para saber mais sobre como escolher as cores do seu próximo projeto acesse: [Como deixar meu site mais bonito como uma pessoa desenvolvedora?](https://www.emanuelandrade.com.br/blog/como-deixar-meu-site-mais-bonito/) e [Como escolher as cores do meu próximo site?[Em desenvolvimento]](https://www.emanuelandrade.com.br/blog/)
+
+### De onde vem esse método?
+
+A alguns anos enquanto estava estudando sobre Pintura Digital acabei encontrando diversos conteúdos a cerca de como escolher as cores para as sombras e luzes de um projeto.
+
+Um dos modos de se alcançar um bom resultado envolvia essa variação circular ao redor do tom inicial escolhido, bem como a variação da Matiz. Desde então é o modo que costumo escolher variações de cores num geral.
+
+Mesmo não sendo inicialmente para a criação de sites ainda é um jeito bom de escolher cores num geral e pode ser ao menos um inicio da definição da paleta do seu site.
