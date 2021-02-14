@@ -7,7 +7,7 @@ export const Input = styled.input`
     border-radius: ${theme.border.radius};
     margin-right: ${theme.spacing.xsmall};
     box-shadow: ${theme.shadows.elevation1};
-    color: ${theme.colors.gray.main};
+    color: ${theme.colors.gray.medium};
     background: ${theme.colors.background.light};
     padding: ${theme.spacing.xsmall} ${theme.spacing.small};
   `}
