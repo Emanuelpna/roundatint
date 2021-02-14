@@ -21,5 +21,18 @@ export const ColorForm = styled.form`
       color: ${theme.colors.gray.main};
       font-size: ${theme.font.sizes.xmedium};
     }
+
+    @media screen and (max-width: 768px) {
+      padding: 0 ${theme.spacing.xlarge};
+
+      & > div {
+        width: 100%;
+      }
+
+      & label {
+        text-align: center;
+        padding: 0 ${theme.spacing.small};
+      }
+    }
   `}
 `;
