@@ -4,6 +4,8 @@ import mdx from "@brillout/vite-plugin-mdx";
 import reactRefresh from "@vitejs/plugin-react-refresh";
 
 export default defineConfig({
-  alias: { "/@": path.resolve(__dirname, "src/") },
   plugins: [mdx(), reactRefresh()],
+  resolve: {
+    alias: { "/@": path.resolve(__dirname, "src/") },
+  },
 });
