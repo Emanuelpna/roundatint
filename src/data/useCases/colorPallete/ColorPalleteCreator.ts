@@ -106,9 +106,7 @@ export class ColorPalleteCreator implements ColorPallete {
         offsetSaturation = newSaturation - this.saturation;
       }
 
-      newSaturationValues.push(
-        this._offsetSaturation(value, type) - offsetSaturation
-      );
+      newSaturationValues.push(this._offsetSaturation(value, type));
 
       value = Math.ceil(value - this._getVariationStep(type));
 
@@ -143,12 +141,13 @@ export class ColorPalleteCreator implements ColorPallete {
     if (this.higherContrast) {
       const maxBoundaryOffset = this.saturation;
 
-      return maxBoundaryOffset + saturationVariation;
+      // 100 - maxBoundaryOffset é usado para reverter a ordem de crescimento
+      return 100 - maxBoundaryOffset / 1.6 + saturationVariation;
     } else {
       const maxBoundaryOffset =
         this.saturation - Math.abs(this._getVariationStep(type));
 
-      return maxBoundaryOffset - saturationVariation;
+      return 100 - maxBoundaryOffset / 1.6 - saturationVariation;
     }
   }
 
