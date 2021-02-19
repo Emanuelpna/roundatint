@@ -99,26 +99,27 @@ export class ColorPalleteCreator implements ColorPallete {
     const newSaturationValues = [];
 
     let offsetSaturation = 0;
-    let value = this.lightness;
+    let currentLightness = this.lightness;
     for (let index = 0; index < this.totalSteps; index++) {
-      const newSaturation = this._offsetSaturation(value, type);
+      const newSaturation = this._offsetSaturation(currentLightness, type);
+
       if (index === 0) {
-        offsetSaturation = newSaturation - this.saturation;
+        offsetSaturation = (newSaturation - this.saturation)  / 1.1;
       }
+      
+      newSaturationValues.push(this._offsetSaturation(currentLightness, type) - offsetSaturation);
 
-      newSaturationValues.push(this._offsetSaturation(value, type));
+      currentLightness = Math.ceil(currentLightness - this._getVariationStep(type));
 
-      value = Math.ceil(value - this._getVariationStep(type));
-
-      newLightnessValues.push(value);
+      newLightnessValues.push(currentLightness);
     }
 
     const newColors = [];
 
     newColors.push({
       hue: this.hue,
-      saturation: this.saturation,
       lightness: this.lightness,
+      saturation: this.saturation,
     });
 
     for (let index = 0; index < this.totalSteps; index++) {
@@ -206,7 +207,7 @@ export class ColorPalleteCreator implements ColorPallete {
 
     // Transforma uma variação linear em uma não-lienar
     const exponencialVariation = Math.exp(
-      variationByTheInverseOfCurrentLightness / 16
+      variationByTheInverseOfCurrentLightness / 14
     );
 
     const newValue = Math.sqrt(
