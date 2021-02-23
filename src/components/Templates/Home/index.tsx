@@ -20,8 +20,6 @@ import * as S from "./styles";
 
 export default function Home() {
   const { locale } = useContext(I18nContext);
-  
-  console.log('locale :>> ', locale);
 
   const [showPallete, setShowPallete] = useState(false);
 
@@ -98,15 +96,15 @@ export default function Home() {
             <>
               <Spacer size={24} />
 
-              <ColorList title="Sombras" colorList={newShadeColors} />
+              <ColorList title={locale.home.shades} colorList={newShadeColors} />
 
               <Spacer size={24} />
 
-              <ColorList title="Luzes" colorList={newTintColors} />
+              <ColorList title={locale.home.tints} colorList={newTintColors} />
 
               <Spacer size={24} />
 
-              <ColorList title="Texto" colorList={newTextColors} />
+              <ColorList title={locale.home.text} colorList={newTextColors} />
             </>
           )}
         </Grid.Column>
