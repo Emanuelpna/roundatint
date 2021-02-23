@@ -42,6 +42,24 @@ export const Header = styled.header`
       font-family: ${theme.font.family.text};
     }
 
+    & nav button {
+      border: none;
+      cursor: pointer;
+      font-weight: ${theme.font.bold};
+      color: ${theme.colors.primary.main};
+      font-size: ${theme.font.sizes.small};
+      border-radius: ${theme.border.radius};
+      background: ${theme.colors.gray.lightest};
+      border: 2px solid ${theme.colors.primary.main};
+      padding: ${theme.spacing.xxsmall} ${theme.spacing.xsmall};
+      transition: 150ms ease-in-out;
+    }
+
+    & nav button:hover {
+      color: ${theme.colors.gray.lightest};
+      background: ${theme.colors.primary.main};
+    }
+
     & nav a.currentPage {
       color: ${theme.colors.background.light};
       background: ${theme.colors.primary.main};
