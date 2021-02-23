@@ -104,7 +104,7 @@ export class ColorPalleteCreator implements ColorPallete {
       const newSaturation = this._offsetSaturation(currentLightness, type);
 
       if (index === 0) {
-        offsetSaturation = (newSaturation - this.saturation)  / 1.1;
+        offsetSaturation = (newSaturation - this.saturation);
       }
       
       newSaturationValues.push(this._offsetSaturation(currentLightness, type) - offsetSaturation);
@@ -153,7 +153,7 @@ export class ColorPalleteCreator implements ColorPallete {
   }
 
   private _getHueVariation(hue: number, variation: number, type: ColorType) {
-    const isYellow = this._isNumberInRange(20, 64);
+    const isYellow = this._isNumberInRange(20, 72);
     const isPurple = this._isNumberInRange(263, 327);
 
     if (type === "tint" || isYellow(hue) || isPurple(hue)) {
