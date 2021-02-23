@@ -1,7 +1,9 @@
-import React, { EventHandler, MouseEventHandler } from "react";
 import copy from "copy-to-clipboard";
+import React, { useContext } from "react";
 
 import { ColorHSL } from "/@/domain/model/color/ColorHSL";
+
+import { I18nContext } from "/@/data/context/I18nContext";
 
 import { ColorConvertor } from "/@/data/useCases/colorPallete/ColorConvertor";
 
@@ -12,6 +14,8 @@ export type ColorBlockProps = {
 };
 
 export default function ColorBlock({ colorCode }: ColorBlockProps) {
+  const { locale } = useContext(I18nContext);
+
   const colorConvertor = new ColorConvertor();
 
   function copyColorOnClick() {
@@ -19,8 +23,8 @@ export default function ColorBlock({ colorCode }: ColorBlockProps) {
   }
 
   return (
-    <S.Wrapper title="Clique para copiar Cor para área de tranferência" onClick={copyColorOnClick}>
-      <S.Block colorCode={colorCode} />
+    <S.Wrapper onClick={copyColorOnClick} title={locale.home.colorTitle}>
+      <S.Block colorCode={colorCode} message={locale.home.colorMessage} />
       <S.ColorName>{colorConvertor.hslToString(colorCode)}</S.ColorName>
     </S.Wrapper>
   );

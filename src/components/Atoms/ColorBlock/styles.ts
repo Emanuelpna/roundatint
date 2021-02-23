@@ -22,8 +22,8 @@ export const Wrapper = styled.div`
   `}
 `;
 
-export const Block = styled.div<ColorBlockProps>`
-  ${({ theme, colorCode }) => css`
+export const Block = styled.div<ColorBlockProps & { message: string }>`
+  ${({ theme, message, colorCode }) => css`
     width: 120px;
     margin: 12px;
     height: 120px;
@@ -36,7 +36,7 @@ export const Block = styled.div<ColorBlockProps>`
     padding: ${theme.spacing.xsmall} ${theme.spacing.small};
 
     &::after {
-      content: "Clique para copiar código";
+      content: '${message}';
       position: absolute;
       opacity: 0;
       top: -12px;

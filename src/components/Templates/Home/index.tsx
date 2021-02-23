@@ -1,6 +1,8 @@
-import React, { useLayoutEffect, useState } from "react";
+import React, { useContext, useLayoutEffect, useState } from "react";
 
 import { ColorHSL } from "/@/domain/model/color/ColorHSL";
+
+import { I18nContext } from "/@/data/context/I18nContext";
 
 import { HexConvertor } from "/@/data/useCases/colorPallete/HexConvertor";
 import { ColorPalleteCreator } from "/@/data/useCases/colorPallete/ColorPalleteCreator";
@@ -17,6 +19,10 @@ import ColorList from "/@/components/Molecules/ColorList";
 import * as S from "./styles";
 
 export default function Home() {
+  const { locale } = useContext(I18nContext);
+  
+  console.log('locale :>> ', locale);
+
   const [showPallete, setShowPallete] = useState(false);
 
   const [colorHex, setColorHex] = useState("");
@@ -74,12 +80,12 @@ export default function Home() {
               id="colorChooser"
               name="colorChooser"
               initialValue={colorHex}
-              placeholder="Exemplo: #D33F49 (# é opcional)"
-              label="Digite o código HEX da cor escolhida"
+              label={locale.home.label}
+              placeholder={locale.home.placeholder}
               onInputChange={(value: string) => setColorHex(value.trim())}
             />
 
-            <Button type="submit">Gerar Paleta de Cores</Button>
+            <Button type="submit">{locale.home.button}</Button>
           </S.ColorForm>
         </Grid.Column>
 

@@ -1,0 +1,55 @@
+import ColorPreview from "/@/components/Atoms/ColorPreview/index.tsx";
+
+## Choosing colors variations for your next web app
+
+### How the color choosing works?
+
+This project ideia is to be a new possibility for you when choosing your next project colors. Here, the colors are choosed by a non-linear method.
+
+Look at the color `#5E4AE3` <ColorPreview colorHex="#5E4AE3" className="insideText" />, for example, below:
+
+![Example for a blue color](/images/cor_original.jpg)
+
+In order to define the darker variations we could follow a pattern that is darkening from top to bottom, like the image below:
+
+![Darker blue tone choosed by changing mainly it luminosity and a little bit of the saturation](/images/cor_escura_padrao.jpg)
+
+The new color now has a low luminosity, as expected. But also loose a bit of saturation.
+
+By using this app method we could define the new tones while maintaining its saturation values ​​better. It still needs to be reduced for a more natural result.
+
+![Darker shade of blue chosen above preserving saturation](/images/cor_escura_roundatint.jpg)
+
+The method consists of nothing less than defining the new colors (both darker and lighter variations) by making an arc in the color selection box, as the image below:
+
+![Visual representation of the arc of new colors to be choosen](/images/esquema_visual_roundatint.jpg)
+
+Besides that, the new colors my suffer slight changes in their hue. A darker blue will have hints of purple, while a lighter blue will have hints of cyan.
+
+The default is that darker colors will have more tones from the right in the Hue gradient and lighter colors will have more tones from the left in the Hue gradient.
+
+![Visual representation of the Hue variation](/images/esquema_visual_variacao_matiz.jpg)
+
+The exception here is the Yellow and the Purple. Both colors won't work using this schema. And for them, the order is inverse. The darker colors will be on the left and vice versa.
+This will make that darker purple have hints of blue instead of red and dark yellow will have hints of orange instead of green.
+
+### What is RoundATint?
+
+The name is a pun with Roundabout (yes, those from roads). As the ideia here is to choose colors by making a circle, the name would imply that we would be surrounding a color. 
+
+We would be _round a tint_ in the case of tints. Or _round a shade_ for the. May this phrase will not make sense in English. In this case, forget it and focus on it being just a pun.
+
+### When should I use this method?
+
+Always and never. I mean: It is another possibility for you to use. It may or may not work for you or your project. And I recommend that you make little adjustments to the given colors in order to refine with the necessities of your project in mind.
+It is possible that you don't need as many variations as the ones offered and you only want to choose a few. It's your decision too.
+
+The ideia here is to maintain the characteristics of the choose color from the darker to lighter tones. As well as in the text colors.
+
+### Where does this method come from?
+
+Some years ago, while estudying Digital Painting, i found multiple contents around of the topic of choosing colors for tints and shades of a project.
+
+One of the ways to achieve a good result involved this circular variation around the chosen initial tone, as well as the variation of Hue. Since then it is the way I usually choose color variations in general.
+
+Even though it is not initially for creating websites it is still a good way to choose colors in general and can be at least the beginning of defining your website's palette.
