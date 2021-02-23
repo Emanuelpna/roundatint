@@ -16,9 +16,12 @@ const ContactPage = loadable(() => import("/@/pages/contato"), {
 import { theme } from "/@/styles/themes";
 import { GlobalStyles } from "/@/styles/global";
 
+import { I18nContextProvider } from "./data/context/I18nContext";
+
 function App() {
   return (
     <Router>
+      <I18nContextProvider>
       <ThemeProvider theme={theme}>
         <GlobalStyles />
         <Switch>
@@ -33,6 +36,7 @@ function App() {
           </Route>
         </Switch>
       </ThemeProvider>
+      </I18nContextProvider>
     </Router>
   );
 }
