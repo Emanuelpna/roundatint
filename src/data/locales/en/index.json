@@ -1,0 +1,10 @@
+{
+  "label": "Type the Hex Code of the desired color",
+  "placeholder": "e.g. #D33F49 (# is optional)",
+  "button": "Generate Color Palette",
+  "colorTitle": "Click to copy color HSL code",
+  "colorMessage": "Click to copy color code",
+  "shades": "Shades",
+  "tints": "Tints",
+  "text": "Text"
+}

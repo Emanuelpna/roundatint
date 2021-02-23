@@ -1,0 +1,10 @@
+{
+  "label": "Digite o código HEX da cor escolhida",
+  "placeholder": "Exemplo: #D33F49 (# é opcional)",
+  "button": "Gerar Paleta de Cores",
+  "colorTitle": "Clique para copiar código HSL",
+  "colorMessage": "Clique para copiar código",
+  "shades": "Sombras",
+  "tints": "Luzes",
+  "text": "Texto"
+}
