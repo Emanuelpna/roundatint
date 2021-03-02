@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 
 export const Header = styled.header`
   ${({ theme }) => css`
+    position: relative;
     display: flex;
     flex-flow: row wrap;
     align-items: center;
@@ -9,6 +10,7 @@ export const Header = styled.header`
     padding: ${theme.spacing.medium} 6%;
     background: ${theme.colors.background.light};
     box-shadow: ${theme.shadows.elevationContrast1};
+    z-index: 50;
 
     & h1 {
       color: ${theme.colors.primary.main};
