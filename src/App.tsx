@@ -4,14 +4,16 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Index from "/@/pages/index";
 
-const Projeto = lazy(() => import("/@/pages/projeto"));
-
-const ContactPage = lazy(() => import("/@/pages/contato"));
+import LoadingScreen from "/@/components/Templates/LoadingScreen";
 
 import { theme } from "/@/styles/themes";
 import { GlobalStyles } from "/@/styles/global";
 
 import { I18nContextProvider } from "/@/data/context/I18nContext";
+
+const Projeto = lazy(() => import("/@/pages/projeto"));
+
+const ContactPage = lazy(() => import("/@/pages/contato"));
 
 function App() {
   return (
@@ -24,12 +26,12 @@ function App() {
               <Index />
             </Route>
             <Route path="/projeto">
-              <Suspense fallback={<div>Carregando...</div>}>
+              <Suspense fallback={<LoadingScreen />}>
                 <Projeto />
               </Suspense>
             </Route>
             <Route path="/contato">
-              <Suspense fallback={<div>Carregando...</div>}>
+              <Suspense fallback={<LoadingScreen />}>
                 <ContactPage />
               </Suspense>
             </Route>
