@@ -1,17 +1,20 @@
-import React from "react";
-
+import React, { useContext } from "react";
+import { Mail as MailIcon } from "@styled-icons/feather/Mail";
 import { Github as GithubIcon } from "@styled-icons/feather/Github";
 import { Behance as BehanceIcon } from "@styled-icons/fa-brands/Behance";
 import { Linkedin as LinkedinIcon } from "@styled-icons/feather/Linkedin";
-import { Mail as MailIcon } from "@styled-icons/feather/Mail";
 
-import { Grid } from "/@/components/Atoms/Grid";
+import { I18nContext } from "/@/data/context/I18nContext";
+
 import Header from "/@/components/Atoms/Header";
+import { Grid } from "/@/components/Atoms/Grid";
 import { Spacer } from "/@/components/Atoms/Spacer";
 
 import * as S from "./styles";
 
 export default function Contato() {
+  const { locale } = useContext(I18nContext);
+
   return (
     <main>
       <Header />
@@ -33,7 +36,7 @@ export default function Contato() {
               }}
             >
               <S.TitleContainer>
-                <h3>Links para contato</h3>
+                <h3>{locale.home.contactLinks}</h3>
 
                 <hr />
               </S.TitleContainer>

@@ -10,7 +10,7 @@ type I18nContextType = {
   localeKey: Locale;
   locale: LocaleObject;
   nextLocaleKey: Locale;
-  toggleLocale: () => void;
+  toggleLocale: null | (() => void);
 };
 
 type Locale = "pt-BR" | "en-US";
@@ -39,8 +39,8 @@ const locales: LocalesObject = {
 
 const I18nContext = createContext<I18nContextType>({
   localeKey: "pt-BR",
+  toggleLocale: null,
   nextLocaleKey: "en-US",
-  toggleLocale: () => {},
   locale: locales["pt-BR"],
 });
 

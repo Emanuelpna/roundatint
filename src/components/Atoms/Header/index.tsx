@@ -23,7 +23,7 @@ export default function Header() {
         {locale.header.contact}
         </NavLink>
 
-        <button onClick={toggleLocale}>
+        <button onClick={() => toggleLocale?.()}>
           {nextLocaleKey}
         </button>
       </nav>
