@@ -153,10 +153,11 @@ export class ColorPalleteCreator implements ColorPallete {
   }
 
   private _getHueVariation(hue: number, variation: number, type: ColorType) {
-    const isYellow = this._isNumberInRange(20, 72);
+    const isRed = this._isNumberInRange(349, 360);
     const isPurple = this._isNumberInRange(263, 327);
+    const isOrangeOrYellow = this._isNumberInRange(0, 72);
 
-    if (type === "tint" || isYellow(hue) || isPurple(hue)) {
+    if (type === "tint" || isOrangeOrYellow(hue) || isPurple(hue) || isRed(hue)) {
       return this._correctHueValue(Math.ceil(hue - variation / 0.22));
     } else {
       return this._correctHueValue(Math.ceil(hue + variation / 0.22));
