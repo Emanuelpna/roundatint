@@ -1,53 +1,56 @@
+import ColorPicker from "/@/components/Atoms/ColorPicker/index.tsx";
 import ColorPreview from "/@/components/Atoms/ColorPreview/index.tsx";
+
+import ColorList from "/@/components/Molecules/ColorList/index.tsx";
 
 ## Choosing colors variations for your next web app
 
 ### How the color choosing works?
 
-This project ideia is to be a new possibility for you when choosing your next project colors. Here, the colors are choosed by a non-linear method.
+The project ideia is to generate variations for the colors on your color pallete. The new color tones would be brighter alongside with being darker or lighter.
 
-Look at the color `#5E4AE3` <ColorPreview colorHex="#5E4AE3" className="insideText" />, for example, below:
+Take the color `#3C21AC` <ColorPreview colorHex="#3C21AC" className="insideText" /> as an example below:
 
-![Example for a blue color](/images/cor_original.jpg)
+<ColorPicker colorHex="#3C21AC" />
 
-In order to define the darker variations we could follow a pattern that is darkening from top to bottom, like the image below:
+One of the possibilities for a darker tone, would be the color `#160c3f` <ColorPreview colorHex="#160c3f" className="insideText" />.
 
-![Darker blue tone choosed by changing mainly it luminosity and a little bit of the saturation](/images/cor_escura_padrao.jpg)
+In this case we indeed get a darker tone, but it is also grayer than the original color (as the saturation was decreased too).
 
-The new color now has a low luminosity, as expected. But also loose a bit of saturation.
+<ColorPicker colorHex="#160c3f" />
 
-By using this app method we could define the new tones while maintaining its saturation values ​​better. It still needs to be reduced for a more natural result.
+The new color have a low luminosity, as expected. But also lost a bit of their saturation.
 
-![Darker shade of blue chosen above preserving saturation](/images/cor_escura_roundatint.jpg)
+With this project method, we would be able to define the new color while manteining the saturation values a bit better (It still needs to be decreased a bit for a more natural look)
 
-The method consists of nothing less than defining the new colors (both darker and lighter variations) by making an arc in the color selection box, as the image below:
+This way we get the color `#0f053b` <ColorPreview colorHex="#0f053b" className="insideText" />
 
-![Visual representation of the arc of new colors to be choosen](/images/esquema_visual_roundatint.jpg)
+<ColorPicker colorHex="#0f053b" />
 
-Besides that, the new colors will suffer slight changes in their hue. A darker blue will have hints of purple, while a lighter blue will have hints of cyan.
+The method consists in choosing the new colors by making an arc on the color selection box.
 
-The default is that darker colors will have more tones from the right in the Hue gradient and lighter colors will have more tones from the left in the Hue gradient.
+In this way, darker tone would move to the right a bit and lighter tones would move to the left a bit (how much it moves depends on the variation you need).
 
-![Visual representation of the Hue variation](/images/esquema_visual_variacao_matiz.jpg)
+In the real world, the colors on the lights and shadows are influenced by the enviroment around. So shadows are not gray or black, but could have tints of blue, for instance. 
 
-The exception here is the Yellow and the Purple. Both colors won't work using this schema. And for them, the order is inverse. The darker colors will be on the left and vice versa.
-This will make that darker purple have hints of blue instead of red and dark yellow will have hints of orange instead of green.
+If we would creating a digital painting, the enviroment created would dictate how this influence would happen. In a UI Design, it has no real enviroment.
 
-### What is RoundATint?
+In this case, i have assumed some of this variations based on common things. Like the Blue above.
 
-The name is a pun with Roundabout (yes, those from roads). As the ideia here is to choose colors by making a circle, the name would imply that we would be surrounding a color. 
+In our example, the new color with hue variation would be `#13042e` <ColorPreview colorHex="#13042e" className="insideText" />
+
+<ColorPicker colorHex="#13042e" />
+
+A lighter color using this method could be: `#5055e3` <ColorPreview colorHex="#5055e3" className="insideText" />
+
+<ColorPicker colorHex="#5055e3" />
+
+<ColorList title="Colors without the Method" colorList={[{ hue: 252, saturation: 96, lightness: 59 }, { hue: 252, saturation: 68, lightness: 40 }, { hue: 252, saturation: 68, lightness: 15 }]} />
+<ColorList title="Colors with the Method" colorList={[{ hue: 248, saturation: 64, lightness: 60 }, { hue: 252, saturation: 68, lightness: 40 }, { hue: 266, saturation: 86, lightness: 16 }]} />
+
+<br/>
 
 ### When should I use this method?
 
-Always and never. I mean: It is another possibility for you to use. It may or may not work for you or your project. And I recommend that you make little adjustments to the given colors in order to refine with the necessities of your project in mind.
-It is possible that you don't need as many variations as the ones offered and you only want to choose a few. It's your decision too.
-
-The ideia here is to maintain the characteristics of the choosen color from the darker to lighter tones. As well as in the text colors.
-
-### Where does this method come from?
-
-Some years ago, while estudying Digital Painting, i found multiple contents around of the topic of choosing colors for tints and shades of a project.
-
-One of the ways to achieve a good result involved this circular variation around the chosen initial tone, as well as the variation of Hue. Since then it is the way I usually choose color variations in general.
-
-Even though it is not initially for creating websites it is still a good way to choose colors in general and can be at least the beginning of defining your website's palette.
+It is one more method you could use and may or may not be needed. Could fit in one project or not. And I recomend you to make little adjustments on the colors you get to refine with your projects needs in mind.
+You could not need all the variations given and choose only some of them, it is your choise.

@@ -1,56 +1,52 @@
+import ColorPicker from "/@/components/Atoms/ColorPicker/index.tsx";
 import ColorPreview from "/@/components/Atoms/ColorPreview/index.tsx";
+
+import ColorList from "/@/components/Molecules/ColorList/index.tsx";
 
 ## Escolhendo as variações de cores do seu próximo site
 
 ### Como funciona a escolha de cores?
 
-A ideia desse projeto é ser uma nova possibilidade para você ao escolher as cores do seu projeto.
-As cores são definidas de maneira não-linear.
+O projeto tem o intuito de te ajudar a gerar as variações de uma cor que esteja em uso na sua paleta de cores. A ideia aqui é não somente escurecer ou clarear os tons mas também deixa-los mais vivos.
 
-Veja por exemplo a cor `#5E4AE3` <ColorPreview colorHex="#5E4AE3" className="insideText" /> abaixo:
+Veja por exemplo a cor `#3C21AC` <ColorPreview colorHex="#3C21AC" className="insideText" /> abaixo:
 
-![Exemplo de uma cor azul](/images/cor_original.jpg)
+<ColorPicker colorHex="#3C21AC" />
 
-Para definirmos as suas variações mais escuras poderiamos seguir com o padrão e ir escurendo linearmente como na imagem abaixo:
+Uma das possibilidades de se escurecer ele, seria com a cor `#160c3f` <ColorPreview colorHex="#160c3f" className="insideText" />.
+Desse modo recebemos um tom mais escuro, como esperado, mas também um tom um pouco mais acizentado pela diminuição da saturação que ocorreu.
 
-![Tom mais escuro do azul escolhido a cima alterando principalmente sua luminosidade e um pouco da saturação](/images/cor_escura_padrao.jpg)
+<ColorPicker colorHex="#160c3f" />
 
 A nova cor está com a luminosidade baixa, como esperado. Mas também perdeu um pouco da saturação.
 
-Utilizando o método desse site poderíamos definir a cor mantendo melhor seus valores de saturação. Ela ainda precisa ser diminuida para um resultado mais natural.
+Utilizando o método desse site poderíamos definir a cor mantendo melhor seus valores de saturação. Mesmo que ela ainda precisa ser diminuida um pouco para um resultado mais natural.
+Chegando assim na cor `#0f053b` <ColorPreview colorHex="#0f053b" className="insideText" />
 
-![Tom mais escuro do azul escolhido a cima preservando a saturação](/images/cor_escura_roundatint.jpg)
+<ColorPicker colorHex="#0f053b" />
 
-O método usado consiste em nada mais nada menos do que definir as novas cores (tanto mais escuras quanto mais claras) fazendo um arco na caixa de seleção de cores, como na imagem abaixo:
+O método usado consiste em nada mais nada menos do que definir as novas cores (tanto mais escuras quanto mais claras) fazendo um arco na caixa de seleção de cores.
 
-![Representação visual do arco de novas cores a serem escolhidas](/images/esquema_visual_roundatint.jpg)
+Ou seja, ao escurecer um tom, escolher as cores um pouco mais a direita da caixa de seleção (ou seja, com a saturação um pouco mais alta). O mesmo para cores mais claras que seria escolhidas um pouco mais a esquerda (tendendo para o branco).
 
 Além disso as cores novas devem sofrer leves alterações na sua Matiz. Um azul mais escuro terá pitadas de roxo, enquanto um azul mais claro terá pitadas de ciano.
 
-O padrão é cores mais escuras terão tons mais a direita no degradê de Matiz e cores mais claras terão tons mais a esquerda no degradê de Matiz.
+Não tem muito um padrão, e cada tonalidade necessita de uma variação de Matiz diferente. Em um projeto de pintura digital, por exemplo, o próprio cenário ditaria qual seria essa variação.
+Num contexto de Design de Interfaces isso fica um pouco genérico. Por isso adotei alguns padrões por conta própria, como o do azul já citado.
+No nosso exemplo anterior, a cor nova seria `#13042e` <ColorPreview colorHex="#13042e" className="insideText" />
 
-![Representação visual da variação de Matiz](/images/esquema_visual_variacao_matiz.jpg)
+<ColorPicker colorHex="#13042e" />
 
-A exceção aqui é o Amarelo e o Roxo. Ambas as cores não funcionam nesse esquema e para elas a ordem é invertida. As cores mais escuras estarão a esquerda e vice versa.
-Isso faz com que o roxo escuro tenha tons azulados em vez de avermelhadas e que os tons mais escuros de amarelo sejam alaranjados e não esverdeados.
+Um exemplo dessa cor mais clara usando esse método seria: `#5055e3` <ColorPreview colorHex="#5055e3" className="insideText" />
 
-### O que é RoundATint?
+<ColorPicker colorHex="#5055e3" />
 
-O nome é um trocadilho com Roundabout, ou Rotatória em bom português (sim aquelas que você vê pelas estradas). Como a ideia aqui é escolher as cores em círculo, o nome daria a entender que estaremos circundando uma cor.
+<ColorList title="Cores sem o Método" colorList={[{ hue: 252, saturation: 96, lightness: 59 }, { hue: 252, saturation: 68, lightness: 40 }, { hue: 252, saturation: 68, lightness: 15 }]} />
+<ColorList title="Cores com o Método" colorList={[{ hue: 248, saturation: 64, lightness: 60 }, { hue: 252, saturation: 68, lightness: 40 }, { hue: 266, saturation: 86, lightness: 16 }]} />
+
+<br/>
 
 ### Quando devo usar esse método?
 
-Sempre e nunca. Quero dizer: É mais um possível método a se usar em seus projetos. Ele pode se adequar ou não. E recomendo que você faça pequenos ajustes na cor escolhida aqui afim de refinar com as necessidades do seu projeto em mente.
-É possível também que você não precise de tantas variações quanto as oferecidas e escolha apenas algumas. Fica a seu critério também.
-
-A ideia aqui é manter a característica da cor escolhida tanto em seus tons mais escuros ou mais claros quanto também nas cores a serem usadas para os textos.
-
-Para saber mais sobre como escolher as cores do seu próximo projeto acesse: [Como deixar meu site mais bonito como uma pessoa desenvolvedora?](https://www.emanuelandrade.com.br/blog/como-deixar-meu-site-mais-bonito/) e [Como escolher as cores do meu próximo site?[Em desenvolvimento]](https://www.emanuelandrade.com.br/blog/)
-
-### De onde vem esse método?
-
-A alguns anos enquanto estava estudando sobre Pintura Digital acabei encontrando diversos conteúdos a cerca de como escolher as cores para as sombras e luzes de um projeto.
-
-Um dos modos de se alcançar um bom resultado envolvia essa variação circular ao redor do tom inicial escolhido, bem como a variação da Matiz. Desde então é o modo que costumo escolher variações de cores num geral.
-
-Mesmo não sendo inicialmente para a criação de sites ainda é um jeito bom de escolher cores num geral e pode ser ao menos um inicio da definição da paleta do seu site.
+É mais um possível método a se usar nos seus projetos. Ele pode se adequar ou não. E recomendo que você faça pequenos ajustes na cor escolhida aqui afim de refinar com as necessidades do seu projeto em mente.
+É possível também que você não precise de tantas variações quanto as oferecidas e escolha apenas algumas. Fica a seu critério.
