@@ -36,7 +36,7 @@ export const Content = styled.article`
     }
 
     & p {
-      line-height: 1.2;
+      line-height: 1.5;
       margin: ${theme.spacing.small} 0;
       font-size: ${theme.font.sizes.regular};
       font-family: ${theme.font.family.text};
