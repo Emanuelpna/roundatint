@@ -4,7 +4,9 @@ import * as S from "./styles";
 
 // https://samherbert.net/svg-loaders/
 
-export default function Loading() {
+type LoadingProps = { loadingText: string };
+
+export default function Loading({ loadingText }: LoadingProps) {
   return (
     <S.Wrapper>
       <div>
@@ -58,7 +60,7 @@ export default function Loading() {
           </g>
         </svg>
 
-        <strong>Carregando...</strong>
+        <strong>{loadingText}</strong>
       </div>
     </S.Wrapper>
   );
