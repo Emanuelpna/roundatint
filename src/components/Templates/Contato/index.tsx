@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { Mail as MailIcon } from "@styled-icons/feather/Mail";
-import { Github as GithubIcon } from "@styled-icons/feather/Github";
-import { Behance as BehanceIcon } from "@styled-icons/fa-brands/Behance";
-import { Linkedin as LinkedinIcon } from "@styled-icons/feather/Linkedin";
+import { Mail as MailIcon } from "lucide-react";
+import { Github as GithubIcon } from "lucide-react";
+import { Paintbrush as PaintIcon } from "lucide-react";
+import { Linkedin as LinkedinIcon } from "lucide-react";
 
 import { I18nContext } from "/@/data/context/I18nContext";
 
@@ -72,10 +72,9 @@ export default function Contato() {
               }}
             >
               <S.IconContainer>
-                <BehanceIcon />
+                <PaintIcon />
 
                 <Spacer size={8} />
-
                 <a
                   href="https://www.behance.net/emanuelpna"
                   target="_blank"
