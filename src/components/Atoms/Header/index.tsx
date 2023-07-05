@@ -10,22 +10,30 @@ export default function Header() {
 
   return (
     <S.Header>
-      <NavLink to="/" exact activeClassName="currentPage">
+      <NavLink
+        to="/"
+        end
+        className={({ isActive }) => (isActive ? "currentPage" : "")}
+      >
         <h1>RoundATint</h1>
       </NavLink>
 
       <nav>
-        <NavLink to="/projeto" activeClassName="currentPage">
+        <NavLink
+          to="/projeto"
+          className={({ isActive }) => (isActive ? "currentPage" : "")}
+        >
           {locale.header.about}
         </NavLink>
 
-        <NavLink to="/contato" activeClassName="currentPage">
-        {locale.header.contact}
+        <NavLink
+          to="/contato"
+          className={({ isActive }) => (isActive ? "currentPage" : "")}
+        >
+          {locale.header.contact}
         </NavLink>
 
-        <button onClick={() => toggleLocale?.()}>
-          {nextLocaleKey}
-        </button>
+        <button onClick={() => toggleLocale?.()}>{nextLocaleKey}</button>
       </nav>
     </S.Header>
   );

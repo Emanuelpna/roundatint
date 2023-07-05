@@ -1,11 +1,15 @@
-import path from "path";
+import path from "node:path";
+import mdx from "@mdx-js/rollup";
 import { defineConfig } from "vite";
-import mdx from "@brillout/vite-plugin-mdx";
-import reactRefresh from "@vitejs/plugin-react-refresh";
+import { fileURLToPath } from "node:url";
+import react from "@vitejs/plugin-react";
 
 export default defineConfig({
-  plugins: [mdx(), reactRefresh()],
+  plugins: [
+    { enforce: "pre", ...mdx() },
+    react({ include: /\.(mdx|js|jsx|ts|tsx)$/ }),
+  ],
   resolve: {
-    alias: { "/@": path.resolve(__dirname, "src/") },
+    alias: { "/@": fileURLToPath(new URL("./src", import.meta.url)) },
   },
 });
